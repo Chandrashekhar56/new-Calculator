@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Simple Calculator</h1>
+        <form name="calculator" class="text-center">
+            <input type="text" name="display" id="display" class="form-control">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="button" name="1" value="1" onclick="addToDisplay('1')" class="btn btn-primary btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="2" value="2" onclick="addToDisplay('2')" class="btn btn-primary btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="3" value="3" onclick="addToDisplay('3')" class="btn btn-primary btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="+" value="+" onclick="addToDisplay('+')" class="btn btn-success btn-block">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="button" name="4" value="4" onclick="addToDisplay('4')" class="btn btn-primary btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="5" value="5" onclick="addToDisplay('5')" class="btn btn-primary btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="6" value="6" onclick="addToDisplay('6')" class="btn btn-primary btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="-" value="-" onclick="addToDisplay('-')" class="btn btn-success btn-block">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="button" name="7" value="7" onclick="addToDisplay('7')" class="btn btn-primary btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="8" value="8" onclick="addToDisplay('8')" class="btn btn-primary btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="9" value="9" onclick="addToDisplay('9')" class="btn btn-primary btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="*" value="*" onclick="addToDisplay('*')" class="btn btn-success btn-block">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="button" name="C" value="C" onclick="clearDisplay()" class="btn btn-danger btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="0" value="0" onclick="addToDisplay('0')" class="btn btn-primary btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="=" value="=" onclick="calculate()" class="btn btn-success btn-block">
+                </div>
+                <div class="col">
+                    <input type="button" name="/" value="/" onclick="addToDisplay('/')" class="btn btn-success btn-block">
+                </div>
+            </div>
+        </form>
+    </div>
+<script>
+    function addToDisplay(value) {
+        document.calculator.display.value += value;
+    }
+
+    function clearDisplay() {
+        document.calculator.display.value = "";
+    }
+
+    function calculate() {
+        try {
+            document.calculator.display.value = eval(document.calculator.display.value);
+        } catch (error) {
+            document.calculator.display.value = "Error";
+        }
+    }
+</script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
