@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form name="cal">
+      <input name="dis" id="dis">
+      <button type="button" onclick="addDisplay('1')">1</button>
+      <button type="button" onclick="addDisplay('2')">2</button>
+      <button type="button" onclick="addDisplay('3')">3</button>
+      <button type="button" onclick="addDisplay('4')">4</button>
+      <button type="button" onclick="addDisplay('5')">5</button>
+      <button type="button" onclick="addDisplay('6')">6</button>
+      <button type="button" onclick="addDisplay('7')">7</button>
+      <button type="button" onclick="addDisplay('8')">8</button>
+      <button type="button" onclick="addDisplay('9')">9</button>
+      <button type="button" onclick="addDisplay('0')">0</button>
+      <button type="button" onclick="addDisplay('+')">+</button>
+      <button type="button" onclick="addDisplay('-')">-</button>
+      <button type="button" onclick="addDisplay('*')">*</button>
+      <button type="button" onclick="addDisplay('/')">/</button>
+      <button type="button" onclick="clearDisplay()">Clear</button>
+      <button type="button" onclick="addition()">=</button>
+    </form>
+    <script>
+      function addDisplay(value) {
+        document.cal.dis.value += value;
+      }
+      function clearDisplay()
+      {
+        document.cal.dis.value="";
+      }
+      function addition()
+      {
+        cal.dis.value=eval(cal.dis.value);
+      }
+    </script>
+  </body>
+</html>
