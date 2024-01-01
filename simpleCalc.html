@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Hello, World!</title>
@@ -45,4 +45,89 @@
       }
     </script>
   </body>
+</html>
+ -->
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <form name="cal">
+    <input name="dis" id="dis">
+    <button type="button" onclick="addDisplay('1')">1</button>
+    <button type="button" onclick="addDisplay('2')">2</button>
+    <button type="button" onclick="addDisplay('3')">3</button>
+    <button type="button" onclick="addDisplay('4')">4</button>
+    <button type="button" onclick="addDisplay('5')">5</button>
+    <button type="button" onclick="addDisplay('6')">6</button>
+    <button type="button" onclick="addDisplay('7')">7</button>
+    <button type="button" onclick="addDisplay('8')">8</button>
+    <button type="button" onclick="addDisplay('9')">9</button>
+    <button type="button" onclick="addDisplay('0')">0</button>
+    <button type="button" onclick="addDisplay('+')">+</button>
+    <button type="button" onclick="addDisplay('-')">-</button>
+    <button type="button" onclick="addDisplay('*')">*</button>
+    <button type="button" onclick="addDisplay('/')">/</button>
+    <button type="button" onclick="clearDisplay()">Clear</button>
+    <button type="button" onclick="calculate()">=</button>
+  </form>
+
+  <script>
+    function addDisplay(value) {
+      document.cal.dis.value += value;
+    }
+
+    function clearDisplay() {
+      document.cal.dis.value = "";
+    }
+
+    function calculate() {
+      var expression = document.cal.dis.value;
+
+      try {
+        // Use a custom function to evaluate the expression
+        var result = evaluateExpression(expression);
+        document.cal.dis.value = result;
+      } catch (error) {
+        document.cal.dis.value = 'Error';
+      }
+    }
+
+    function evaluateExpression(expression) {
+      // Regular expression to match operators (+, -, *, /)
+      var operators = /[+\-*/]/;
+
+      // Split the expression based on operators
+      var parts = expression.split(operators);
+
+      // Extract the operator from the expression
+      var operator = expression.match(operators);
+
+      // Convert the operand strings to numbers
+      var operand1 = parseFloat(parts[0]);
+      var operand2 = parseFloat(parts[1]);
+
+      // Perform the calculation based on the operator
+      switch (operator[0]) {
+        case '+':
+          return operand1 + operand2;
+        case '-':
+          return operand1 - operand2;
+        case '*':
+          return operand1 * operand2;
+        case '/':
+          // Check for division by zero
+          if (operand2 !== 0) {
+            return operand1 / operand2;
+          } else {
+            throw new Error("Division by zero");
+          }
+        default:
+          throw new Error("Invalid operator");
+      }
+    }
+  </script>
+</body>
 </html>
